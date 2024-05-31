@@ -21,6 +21,10 @@
 
 function(workaround_9220 language language_works)
   #message("DEBUG: language = ${language}")
+  if(${language} STREQUAL "Fortran")
+    set(${language_works} OFF PARENT_SCOPE)
+    return()
+  endif()
   set(text
     "project(test NONE)
     cmake_minimum_required(VERSION 2.8.11)
